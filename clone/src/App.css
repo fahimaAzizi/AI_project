@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+font-size: 62.5%;
+}
+
+body{
+    background-color:  rgb(3, 0, 31);
+    color: white;
+    font-family:' Poppin',sans-serif;
+}
+
+.App{
+    min-height:100vh ;
+    display: flex;
+}
+
+.sideBar{
+    flex: 3;
+    border-right:1px solid rgb(100, 100, 100) ;
+}
+
+.main{
+    flex: 9;
+}
+.logo{
+    margin-right: 1rem;
+
+}
+
+.brand{
+    font-size: 2rem;
+}
+.uperSide{
+    padding: 2rem;
+    border-bottom: 1px solid rgb(100, 100, 100);
+}
+
+.addBtn{
+    height:  2rem;
+    padding-right: 1rem;
+}
+.midBtn{
+    background-color: #5A4BFF;
+    border: none;
+    color: white;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    width: 25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    border-radius: 0.5rem;
+}
+.query{
+    display: flex;
+    align-items: center;
+    background: transparent;
+    padding: 1.5rem;
+    width: 25rem;
+    margin: 1rem auto;
+    color: rgb(222, 222, 222,1);
+    border-radius: 0.5rem;
+    border: 1px solid rgba(98, 98, 98, 1);
+
+}
