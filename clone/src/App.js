@@ -1,4 +1,12 @@
 import './App.css';
+ import gptLogo from './asseys/chatGPT.svg';
+ import addBtn from'./assets/add-30.png';
+ import magIcon from'./assets message.svg';
+import msgIcon from'./assets/message.svg';
+import home from'./assets/bokmark.svg';
+import saved from './assets/rocket.svg';
+
+
 
 function App() {
   return (
@@ -9,15 +17,15 @@ function App() {
         <div className='upperSideTop'><img src={gptLogo} className='logo'/>chatGPT</div>
        <button className='midBtn'><img className='addBtn' src=''></img>New chat</button>
        <div className='upperSideBttom'>
-       <button className='query'>What is Programming?</button>
-        <button className='query'>What is Programming?</button>
+       <button className='query' ><img src={msgIcon} alt='Query'></img>What is Programming?</button>
+        <button className='query'><img src={msgIcon} alt='Query'></img>What is Programming?</button>
        </div>
 
       </div>
       <div className='lowerSide'>
-        <div className='listItems'><img src='' className='listitemsImg'></img>Home</div>
-        <div className='listItems'><img src='' className='listitemsImg'></img>Saved</div>
-        <div className='listItems'><img src='' className='listitemsImg'></img>Upgrade to prok</div>
+        <div className='listItems'><img src='home' className='listitemsImg'></img>Home</div>
+        <div className='listItems'><img src='saved' className='listitemsImg'></img>Saved</div>
+        <div className='listItems'><img src='rocket' className='listitemsImg'></img>Upgrade to prok</div>
         
 
       </div>
