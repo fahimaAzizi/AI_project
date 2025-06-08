@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+font-size: 62.5%;
+}
+
+body{
+    background-color:  rgb(3, 0, 31);
+    color: white;
+    font-family:' Poppin',sans-serif;
+}
+
+.App{
+    min-height:100vh ;
+    display: flex;
+}
+
+.sideBar{
+    flex: 3;
+    border-right:1px solid rgb(100, 100, 100) ;
+}
+
+.main{
+    flex: 9;
+}
+.logo{
+    margin-right: 1rem;
+
+}
+
+.brand{
+    font-size: 2rem;
+}
+.uperSide{
+    padding: 2rem;
+    border-bottom: 1px solid rgb(100, 100, 100);
+}
