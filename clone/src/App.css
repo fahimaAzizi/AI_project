@@ -135,3 +135,8 @@ body{
     width: 100%;
     display: flex;
 }
+
+.txt{
+    line-height: 2.4rem;
+    color: rgb(222, 222, 222,1);
+}

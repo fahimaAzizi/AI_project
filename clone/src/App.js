@@ -7,9 +7,32 @@ import saved from './assets/rocket.svg';
 import rocket from './assets/send.svg';
 import sendBtn from './assets/user-icon.png';
 import gptImgLogo from './assets/chatgptLogo.svg';
-import userIcon from './assets/user-icon.png'; // Assuming this was missing
+import userIcon from './assets/user-icon.png';
+import { useState } from 'react';
+import { sendMsgToOpenAI } from './openai';
 
 function App() {
+  const [input, setInput] = useState("");
+  const [messages, setMessages] = useState([
+    {
+      text: "Hi I am ChatGPT, a state-of-the-art language model developed by OpenAI.",
+      isBot: true,
+    },
+  ]);
+
+  const handleSend = async () => {
+    if (!input.trim()) return;
+
+    const userMsg = { text: input, isBot: false };
+    setMessages(prev => [...prev, userMsg]);
+
+    const res = await sendMsgToOpenAI(input);
+    const botMsg = { text: res, isBot: true };
+    setMessages(prev => [...prev, botMsg]);
+
+    setInput("");
+  };
+
   return (
     <div className="App">
       <div className="sidebar">
@@ -52,20 +75,30 @@ function App() {
 
       <div className="main">
         <div className="chats">
-          <div className="chat">
-            <img className="chatImg" src={userIcon} alt="User" />
-            <p className="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-          <div className="chat">
-            <img className="chatImg" src={gptImgLogo} alt="GPT" />
-            <p className="txt">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
+          {messages.map((message, i) => (
+            <div key={i} className={`chat ${message.isBot ? "bot" : ""}`}>
+              <img
+                className="chatImg"
+                src={message.isBot ? gptImgLogo : userIcon}
+                alt={message.isBot ? "Bot" : "User"}
+              />
+              <p className="txt">{message.text}</p>
+            </div>
+          ))}
         </div>
 
         <div className="chatFooter">
           <div className="inp">
-            <input type="text" placeholder="Send a message" />
-            <button className="send"><img src={sendBtn} alt="Send" /></button>
+            <input
+              type="text"
+              placeholder="Send a message"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            />
+            <button className="send" onClick={handleSend}>
+              <img src={sendBtn} alt="Send" />
+            </button>
           </div>
           <p className="disclaimer">
             ChatGPT may produce inaccurate information about people, places, or facts.
