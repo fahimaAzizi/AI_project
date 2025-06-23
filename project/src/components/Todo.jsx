@@ -5,11 +5,13 @@ import TodoItems from './Todoitem.';
 const Todo = () => {
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
+  const [count, setCount] = useState(0); // Keeps track of unique `no`
 
   const add = () => {
     const value = inputRef.current.value.trim();
     if (value !== '') {
-      setTodos([...todos, value]);
+      setTodos([...todos, { no: count, text: value }]);
+      setCount(count + 1);
       inputRef.current.value = '';
     }
   };
@@ -28,10 +30,10 @@ const Todo = () => {
       <div className='todo-list'>
         {todos.map((todo, index) => (
           <TodoItems
-            key={index}
+            key={todo.no}
             setTodos={setTodos}
-            no={index}
-            text={todo}
+            no={todo.no}
+            text={todo.text}
           />
         ))}
       </div>
