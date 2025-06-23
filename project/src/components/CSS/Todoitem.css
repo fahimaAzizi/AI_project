@@ -1,0 +1,59 @@
+/* Root container for each todo item */
+.todoitems {
+  background-color: #1f1f2e;
+  color: #ffffff;
+  padding: 14px 18px;
+  margin: 10px auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: background 0.3s ease;
+  width: 90%;
+  max-width: 600px;
+}
+
+/* Inner flex container */
+.todoitems-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Text inside the todo (you should render this inside JSX later) */
+.text {
+  font-size: 16px;
+  flex-grow: 1;
+  margin-right: 14px;
+  word-break: break-word;
+}
+
+/* When task is completed */
+.line-through {
+  text-decoration: line-through;
+  opacity: 0.6;
+  color: #a0a0a0;
+}
+
+/* Icons section */
+.icons {
+  display: flex;
+  gap: 12px;
+}
+
+/* Style for both icons */
+.icon {
+  font-size: 18px;
+  cursor: pointer;
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+/* Hover effect for icons */
+.icon:hover {
+  color: #00ffc3;
+}
+
+/* Optional: fade when item is marked complete */
+.todoitems.completed {
+  background-color: #2e2e3f;
+}
